@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 
 public class MainController {
-    @GetMapping("/")
+    @GetMapping("")
     public String index() {
         return "redirect:/diflixpedia/main";
     }
@@ -46,7 +46,7 @@ public class MainController {
     public String movies(RedirectAttributes redirectAttributes){
         log.info("movies...........");
 
-        return "redirect:/diflixpedia/movies";
+        return "redirect:/diflixpedia/movies/movie-id";
     }
 
     @PostMapping("/search")
