@@ -1,14 +1,15 @@
 package com.winter.ott.entity;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "actor")
 
@@ -17,16 +18,18 @@ public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "a_code", unique = true, nullable = false)
-    private String a_code;
+    private String code;
 
-    @Column(length = 45, nullable = false)
-    private String a_name;
+    @Column(name = "a_name", length = 45, nullable = false)
+    private String name;
 
+    @OneToMany(mappedBy = "actor", cascade = CascadeType.MERGE)
+    private List<Movie> movie = new ArrayList<>();
 
-
+    //ºô´õ
     @Builder
     public Actor(String name){
-        this.a_name = name;
+        this.name = name;
     }
 
 }

@@ -27,32 +27,32 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/join")
-    public void join(){
-        log.info("join...........");
-    }
-
-    @GetMapping("/login")
-    public void login(){
-        log.info("login...........");
-    }
-
-    @GetMapping("/users")
-    public void user(){
-        log.info("users...........");
-    }
-
-    @GetMapping("/movies")
-    public String movies(RedirectAttributes redirectAttributes){
-        log.info("movies...........");
-
-        return "redirect:/diflixpedia/movies/movie-id";
-    }
-
-    @PostMapping("/search")
-    public String search(RedirectAttributes redirectAttributes){
-        log.info("search...........");
-
-        return "redirect:/diflixpedia/search";
-    }
+//    @GetMapping("/join")
+//    public void join(){
+//        log.info("join...........");
+//    }
+//
+//    @GetMapping("/login")
+//    public void login(){
+//        log.info("login...........");
+//    }
+//
+//    @GetMapping("/users")
+//    public void user(){
+//        log.info("users...........");
+//    }
+//
+//    @GetMapping("/movies")
+//    public String movies(RedirectAttributes redirectAttributes){
+//        log.info("movies...........");
+//
+//        return "redirect:/diflixpedia/movies/movie-id";
+//    }
+//
+//    @PostMapping("/search")
+//    public String search(RedirectAttributes redirectAttributes){
+//        log.info("search...........");
+//
+//        return "redirect:/diflixpedia/search";
+//    }
 }
