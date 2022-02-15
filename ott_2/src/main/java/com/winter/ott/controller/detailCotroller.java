@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 //import com.winter.ott.dto
 
-
 @RestController
 @RequestMapping("/movies/{movie-id}")
 @Log4j2

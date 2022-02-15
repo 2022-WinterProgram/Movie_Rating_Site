@@ -41,6 +41,9 @@ public class Movie {
     @Column(name = "Directors", columnDefinition = "TEXT")
     private String directors;
 
+    @Column(name = "Genres1", columnDefinition = "TEXT")
+    private String genres1;
+
     @Column(name = "Genres2", columnDefinition = "TEXT")
     private String genres2;
 
@@ -93,5 +96,7 @@ public class Movie {
         this.country = country;
         this.poster = poster;
     }
+
+
 
 }
