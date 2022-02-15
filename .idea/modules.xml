@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Movie_Rating_Site.iml" filepath="$PROJECT_DIR$/.idea/Movie_Rating_Site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ott.iml" filepath="$PROJECT_DIR$/.idea/modules/ott.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ott.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ott.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ott.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ott.test.iml" />
     </modules>
   </component>
 </project>
