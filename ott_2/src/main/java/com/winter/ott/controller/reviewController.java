@@ -1,38 +1,57 @@
 package com.winter.ott.controller;
 
 
-import lombok.extern.log4j.Log4j2;          // console print
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/movies/movie-id/reviews")
+@RequestMapping("/movies/{movie-id}/reviews")
 @Log4j2
+@RequiredArgsConstructor
 public class reviewController {
 
+
+
+
+    //¿µÈ­ ¸®ºä ¸ñ·Ï
     @GetMapping("/")
     public String index() {
-        return "/movies/movie-id/reviews";
+        return "/movies/{movie-id}/reviews";
     }
+/*
 
-    // ìˆ˜ì •ì„ í•˜ê³  ë¦¬ë·°í˜ì´ì§€ë¡œ
-    @PatchMapping("/review-id/modify")
-    public String modifyReview(){
-        log.info("ë¦¬ë·° modify.........................................");
-        return "redirect:/movies/movie-id/reviews";
-    }
+    /// ¿µÈ­ ¸®ºä ¸ñ·Ï¿¡¼­ ³» ¸®ºä¸¦ Å¬¸¯ÇßÀ»¶§
+    // Æ÷½ºÆ® ¸ğ´Ş ¶ç¿ì±â
+    @GetMapping("/{review-id}/post")
+    public void post(){log.info("review post.........................................");}
 
-    // ì‚­ì œë¥¼ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
-    @DeleteMapping("/tips/remove")
-    public String deleteReview(){
-        log.info("ë¦¬ë·° delete........................................");
-        return "redirect:/movies/movie-id/reviews";
-    }
-
-    // í¬ìŠ¤íŒ…ì„ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
-    @PostMapping("/review-id/post")
+    // Æ÷½ºÆÃÀ» ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    @PostMapping("/{review-id}/post")
     public String postReview(){
-        log.info("ë¦¬ë·° post.........................................");
-        return "redirect:/movies/movie-id/reviews";
+        log.info("review post.........................................");
+        return "redirect:/movies/{movie-id}/reviews";
     }
+*/
+
+/*
+¼öÁ¤ ±â´É º¸·ù
+
+    // ¼öÁ¤À» ÇÏ°í ¸®ºäÆäÀÌÁö·Î
+    @PatchMapping("/{review-id}/modify")
+    public String modifyReview(){
+        log.info("review modify.........................................");
+        return "redirect:/movies/{movie-id}/reviews";
+    }
+*/
+
+    // »èÁ¦¸¦ ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    @DeleteMapping("/remove")
+    public String deleteReview(){
+        log.info("review delete........................................");
+        return "redirect:/movies/{movie-id}/reviews";
+    }
+
+
 
 }
