@@ -24,7 +24,7 @@ public class MainDto {
 
 
 
-    public MainDto(Movie movie,Actor actor){
+    public MainDto(Movie movie){
         this.title = movie.getTitle();
         this.image_url = movie.getPoster();
         this.year = movie.getYear();

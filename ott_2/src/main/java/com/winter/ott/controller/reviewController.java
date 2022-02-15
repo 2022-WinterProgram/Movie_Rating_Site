@@ -1,7 +1,7 @@
 package com.winter.ott.controller;
 
 
-import lombok.extern.log4j.Log4j2;          //ÄÜ¼ÖÃâ·Â
+import lombok.extern.log4j.Log4j2;          // console print
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,24 +14,24 @@ public class reviewController {
         return "/movies/movie-id/reviews";
     }
 
-    // ¼öÁ¤À» ÇÏ°í ¸®ºäÆäÀÌÁö·Î
+    // ìˆ˜ì •ì„ í•˜ê³  ë¦¬ë·°í˜ì´ì§€ë¡œ
     @PatchMapping("/review-id/modify")
     public String modifyReview(){
-        log.info("¸®ºä modify.........................................");
+        log.info("ë¦¬ë·° modify.........................................");
         return "redirect:/movies/movie-id/reviews";
     }
 
-    // »èÁ¦¸¦ ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    // ì‚­ì œë¥¼ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
     @DeleteMapping("/tips/remove")
     public String deleteReview(){
-        log.info("¸®ºä delete........................................");
+        log.info("ë¦¬ë·° delete........................................");
         return "redirect:/movies/movie-id/reviews";
     }
 
-    // Æ÷½ºÆÃÀ» ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    // í¬ìŠ¤íŒ…ì„ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
     @PostMapping("/review-id/post")
     public String postReview(){
-        log.info("¸®ºä post.........................................");
+        log.info("ë¦¬ë·° post.........................................");
         return "redirect:/movies/movie-id/reviews";
     }
 

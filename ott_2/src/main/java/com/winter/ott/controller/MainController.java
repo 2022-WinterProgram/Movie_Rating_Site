@@ -1,14 +1,16 @@
 package com.winter.ott.controller;
 
 
+import com.winter.ott.dto.MainDto;
+import com.winter.ott.dto.SearchMovieResponseDto;
+import com.winter.ott.service.MainService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/diflixpedia")
@@ -16,17 +18,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequiredArgsConstructor
 
 public class MainController {
+
+    public final MainService mainService;
+
     @GetMapping("")
     public String index() {
         return "redirect:/diflixpedia/main";
     }
 
     @GetMapping("/main")
-    public String main(){
+    public List<MainDto> main(){
         log.info("main...........");
-        return "index";
+        List<MainDto> movieList_actor = mainService.showListByActor("Chris Evans");
+        return movieList_actor;
     }
 
+}
 //    @GetMapping("/join")
 //    public void join(){
 //        log.info("join...........");
@@ -55,4 +62,4 @@ public class MainController {
 //
 //        return "redirect:/diflixpedia/search";
 //    }
-}
+

@@ -17,7 +17,7 @@ public class detailCotroller {
 
     @GetMapping("/details")
     public void details(){
-        log.info("상세정보 get...");
+        log.info("details get...");
     }
 
 
