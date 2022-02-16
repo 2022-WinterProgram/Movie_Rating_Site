@@ -90,11 +90,12 @@ public class Movie {
     @JoinColumn(name = "actor_a_code")
     private Actor actor;
 
-    public Movie(String mTitle, int year, String country, String poster) {
+    public Movie(String mTitle, int year, String country, String poster,double imdb) {
         this.title = mTitle;
         this.year = year;
         this.country = country;
         this.poster = poster;
+        this.imdb = imdb;
     }
 
 

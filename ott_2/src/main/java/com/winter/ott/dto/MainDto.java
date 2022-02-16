@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class MainDto {
-    //¿µÈ­ Á¤º¸
+    //ì˜í™” ì •ë³´
     private String title;
     private String image_url;
     private int year;
@@ -19,7 +19,7 @@ public class MainDto {
     private double imdb;
     private String actor;
 
-    //À¯Àú Á¤º¸
+    //ìœ ì € ì •ë³´
 
 
 

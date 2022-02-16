@@ -26,7 +26,7 @@ public class Actor {
     @OneToMany(mappedBy = "actor", cascade = CascadeType.MERGE)
     private List<Movie> movie = new ArrayList<>();
 
-    //∫Ù¥ı
+    //ÎπåÎçî
     @Builder
     public Actor(String name){
         this.name = name;

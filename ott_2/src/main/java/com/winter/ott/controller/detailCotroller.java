@@ -21,27 +21,27 @@ import java.util.List;
 public class detailCotroller {
 
     private final MovieDetailService movieDetailService;
-    // ¿µÈ­ ±âº» Á¤º¸ ¹İÈ¯
+    // ï¿½ï¿½È­ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
     @GetMapping("")
     public List<MovieDto> movieInfo(@PathVariable String movie_id) {
         List<MovieDto> movieInfo = movieDetailService.showMovieInfo(movie_id);
         //System.out.println(movie_id);
         return movieInfo;
     }
-    // ¿µÈ­ ±âº» Á¤º¸ ¹İÈ¯
+    // ì˜í™” ê¸°ë³¸ ì •ë³´ ë°˜í™˜
     @GetMapping("/")
     public String index() {return "/movies/{movie-id}";}
 
-    // ¿µÈ­ »ó¼¼ Á¤º¸
+    // ì˜í™” ìƒì„¸ ì •ë³´
     @GetMapping("/details")
     public void details(){log.info("details get...");}
 
-    /// Æò°¡ÇÏ±â ´­·¶À»¶§
-    // Æ÷½ºÆ® ¸ğ´Ş ¶ç¿ì±â
+    /// í‰ê°€í•˜ê¸° ëˆŒë €ì„ë•Œ
+    // í¬ìŠ¤íŠ¸ ëª¨ë‹¬ ë„ìš°ê¸°
     @GetMapping("/reviews/{review-id}/post")
     public void review(){log.info("review post.........................................");}
 
-    // Æ÷½ºÆÃÀ» ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    // í¬ìŠ¤íŒ…ì„ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
     @PostMapping("/reviews/{review-id}/post")
     public String postReview(){
         log.info("review post.........................................");
@@ -49,31 +49,31 @@ public class detailCotroller {
     }
 
 
-    /// ÆÁ ´õº¸±â ´­·¶À»¶§
-    // ¸ğ´ŞÃ¢ ¶ç¿ì±â
+    /// íŒ ë”ë³´ê¸° ëˆŒë €ì„ë•Œ
+    // ëª¨ë‹¬ì°½ ë„ìš°ê¸°
     @GetMapping("/tips")
-    public void Tip(){ log.info("ÆÁ post");
+    public void Tip(){ log.info("íŒ post");
     }
-    //ÆÁ ÀÛ¼º
+    //íŒ ì‘ì„±
     @PostMapping("/tips")
     public String postTip(){
 
-        log.info("ÆÁ post");
+        log.info("íŒ post");
         //
-        // ÄÚµåÀÛ¼º
+        // ì½”ë“œì‘ì„±
         //
         String text="";
         return "/movies/{movie-id}";
     }
 
-/* ÆÁ ¼öÁ¤ÇÏ±â
+/* íŒ ìˆ˜ì •í•˜ê¸°
 
     @PutMapping("/tips/modify")
     public String modifyTip(){
 
-        log.info("ÆÁ modify");
+        log.info("íŒ modify");
         //
-        // ÄÚµåÀÛ¼º
+        // ì½”ë“œì‘ì„±
         //
         String text="";
         return text;

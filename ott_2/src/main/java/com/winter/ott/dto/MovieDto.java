@@ -9,7 +9,7 @@ import javax.persistence.Column;
 @Data
 public class MovieDto {
 
-    //¿µÈ­ Å×ÀÌºí¿¡ ÀÖ´Â°Å ´Ù°¡Á®¿È...
+    //ì˜í™” í…Œì´ë¸”ì— ìˆëŠ”ê±° ë‹¤ê°€ì ¸ì˜´...
     private int id;
     private String title;
     private int year;

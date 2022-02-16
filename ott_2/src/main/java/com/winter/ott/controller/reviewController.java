@@ -14,19 +14,19 @@ public class reviewController {
 
 
 
-    //¿µÈ­ ¸®ºä ¸ñ·Ï
+    //ì˜í™” ë¦¬ë·° ëª©ë¡
     @GetMapping("/")
     public String index() {
         return "/movies/{movie-id}/reviews";
     }
 /*
 
-    /// ¿µÈ­ ¸®ºä ¸ñ·Ï¿¡¼­ ³» ¸®ºä¸¦ Å¬¸¯ÇßÀ»¶§
-    // Æ÷½ºÆ® ¸ğ´Ş ¶ç¿ì±â
+    /// ì˜í™” ë¦¬ë·° ëª©ë¡ì—ì„œ ë‚´ ë¦¬ë·°ë¥¼ í´ë¦­í–ˆì„ë•Œ
+    // í¬ìŠ¤íŠ¸ ëª¨ë‹¬ ë„ìš°ê¸°
     @GetMapping("/{review-id}/post")
     public void post(){log.info("review post.........................................");}
 
-    // Æ÷½ºÆÃÀ» ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    // í¬ìŠ¤íŒ…ì„ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
     @PostMapping("/{review-id}/post")
     public String postReview(){
         log.info("review post.........................................");
@@ -35,9 +35,9 @@ public class reviewController {
 */
 
 /*
-¼öÁ¤ ±â´É º¸·ù
+ìˆ˜ì • ê¸°ëŠ¥ ë³´ë¥˜
 
-    // ¼öÁ¤À» ÇÏ°í ¸®ºäÆäÀÌÁö·Î
+    // ìˆ˜ì •ì„ í•˜ê³  ë¦¬ë·°í˜ì´ì§€ë¡œ
     @PatchMapping("/{review-id}/modify")
     public String modifyReview(){
         log.info("review modify.........................................");
@@ -45,7 +45,7 @@ public class reviewController {
     }
 */
 
-    // »èÁ¦¸¦ ÇÏ°í ¸®ºä ÆäÀÌÁö·Î
+    // ì‚­ì œë¥¼ í•˜ê³  ë¦¬ë·° í˜ì´ì§€ë¡œ
     @DeleteMapping("/remove")
     public String deleteReview(){
         log.info("review delete........................................");

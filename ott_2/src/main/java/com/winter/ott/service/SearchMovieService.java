@@ -21,7 +21,7 @@ public class SearchMovieService {
         List<SearchMovieResponseDto> resultList = new ArrayList<>();
 
         for (Movie m : movieByTitleList) {
-            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
+            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster(),m.getImdb());
             resultList.add(new SearchMovieResponseDto(movie));
         }
 
