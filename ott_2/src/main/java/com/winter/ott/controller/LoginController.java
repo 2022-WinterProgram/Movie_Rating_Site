@@ -22,4 +22,15 @@ public class LoginController {
     public String login() {
         return "login";
     }
+
+
+    @GetMapping("/fail")
+    @ResponseBody
+    public String loginFail()
+    {
+        String resultmsg = "<script>alert('Wrong ID or password. Please try again.');location.href='/login'</script>";
+                return resultmsg;
+    }
 }
+
+
