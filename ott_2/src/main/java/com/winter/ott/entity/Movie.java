@@ -98,5 +98,38 @@ public class Movie {
     }
 
 
+    public Movie(String title, int year, String age, double imdb, String rottenTomatoes, int netflix, int disney,
+                 String directors, String genres1, String genres2, String genres3, String genres4, String genres5, String genres6,
+                 String country, String language, int runtime, String actor1, String actor2, String actor3, String actor4,
+                 String description, String poster) {
+        this.title = title;
+        this.year = year;
+        this.age = age;
+        this.imdb = imdb;
+        this.rottenTomatoes = rottenTomatoes;
+        this.netflix = netflix;
+        this.disney = disney;
+        this.directors = directors;
+        this.genres1 = genres1;
+        this.genres2 = genres2;
+        this.genres3 = genres3;
+        this.genres4 = genres4;
+        this.genres5 = genres5;
+        this.genres6 = genres6;
+        this.country = country;
+        this.language = language;
+        this.runtime = runtime;
+        this.actor1 = actor1;
+        this.actor2 = actor2;
+        this.actor3 = actor3;
+        this.actor4 = actor4;
+        this.description = description;
+        this.poster = poster;
+    }
+
+
+
+
+
 
 }

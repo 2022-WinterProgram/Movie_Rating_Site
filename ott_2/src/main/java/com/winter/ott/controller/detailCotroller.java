@@ -1,22 +1,36 @@
 package com.winter.ott.controller;
 
+import com.winter.ott.dto.MovieDto;
+import com.winter.ott.service.MovieDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 //import com.winter.ott.dto
 
 @RestController
-@RequestMapping("/movies/{movie-id}")
+@RequestMapping("/movies/{movie_id}")
 @Log4j2
 @RequiredArgsConstructor
 public class detailCotroller {
 
+    private final MovieDetailService movieDetailService;
+    // 영화 기본 정보 반환
+    @GetMapping("")
+    public List<MovieDto> movieInfo(@PathVariable String movie_id) {
+        List<MovieDto> movieInfo = movieDetailService.showMovieInfo(movie_id);
+        //System.out.println(movie_id);
+        return movieInfo;
+    }
     // 영화 기본 정보 반환
     @GetMapping("/")
-    public String index() {
-        return "/movies/{movie-id}";
-    }
+    public String index() {return "/movies/{movie-id}";}
 
     // 영화 상세 정보
     @GetMapping("/details")
