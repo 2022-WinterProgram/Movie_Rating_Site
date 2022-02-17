@@ -34,11 +34,18 @@ public class MainController {
     }
 
 
-    @GetMapping("/GenreList")
+    @GetMapping("/GenreList1")
     public List<MainDto> genre1(){
-        log.info("GenreList...........");
-        List<MainDto> movieList_genre = mainService.listByGenre("Action");
-        return movieList_genre;
+        log.info("GenreList1...........");
+        List<MainDto> movieList_genre1 = mainService.listByGenre("Action");
+        return movieList_genre1;
+    }
+
+    @GetMapping("/GenreList2")
+    public List<MainDto> genre2(){
+        log.info("GenreList2...........");
+        List<MainDto> movieList_genre2 = mainService.listByGenre("Si-Fi");
+        return movieList_genre2;
     }
 
     @GetMapping("/ImdbList")
@@ -48,6 +55,7 @@ public class MainController {
         return movieList_IMDB;
 
     }
+
 }
 
 
