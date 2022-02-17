@@ -18,7 +18,7 @@ public class SearchMovieService {
     public List<SearchMovieResponseDto> searchMovies(String keyword) {
         List<Movie> movieByTitleList = movieRepository.findAllByTitle(keyword);
         List<Movie> movieByActorList = movieRepository.findAllByActor(keyword);
-        List<Movie> movieByDirectorList = movieRepository.findAllByDirector(keyword);
+        List<Movie> movieByDirectorList = movieRepository.findAllByDirectors(keyword);
         List<SearchMovieResponseDto> resultList = new ArrayList<>();
 
         for (Movie m : movieByTitleList) {
