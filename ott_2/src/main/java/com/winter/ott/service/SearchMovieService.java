@@ -21,11 +21,12 @@ public class SearchMovieService {
         List<SearchMovieResponseDto> resultList = new ArrayList<>();
 
         for (Movie m : movieByTitleList) {
-            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster(),m.getImdb());
+            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
             resultList.add(new SearchMovieResponseDto(movie));
         }
 
         return resultList;
     }
+
 
 }
