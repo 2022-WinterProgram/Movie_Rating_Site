@@ -91,13 +91,22 @@ public class Movie {
     private Actor actor;
 
     public Movie(String mTitle, int year, String country, String poster,double imdb) {
+
         this.title = mTitle;
         this.year = year;
         this.country = country;
         this.poster = poster;
         this.imdb = imdb;
+
     }
 
+    public Movie(String mTitle, int year, String country, String poster) {
+        this.title = mTitle;
+        this.year = year;
+        this.country = country;
+        this.poster = poster;
+
+    }
 
     public Movie(String title, int year, String age, double imdb, String rottenTomatoes, int netflix, int disney,
                  String directors, String genres1, String genres2, String genres3, String genres4, String genres5, String genres6,
