@@ -17,22 +17,23 @@ public class SearchMovieService {
 
     public List<SearchMovieResponseDto> searchMovies(String keyword) {
         List<Movie> movieByTitleList = movieRepository.findAllByTitle(keyword);
-        List<Movie> movieByActorList = movieRepository.findAllByActor(keyword);
-        List<Movie> movieByDirectorList = movieRepository.findAllByDirectors(keyword);
+       // List<Movie> movieByTitleList = movieRepository.findMovieByTitle(keyword);
+       // List<Movie> movieByActorList = movieRepository.findAllByActor(keyword);
+       // List<Movie> movieByDirectorList = movieRepository.findAllByDirectors(keyword);
         List<SearchMovieResponseDto> resultList = new ArrayList<>();
 
         for (Movie m : movieByTitleList) {
             Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
             resultList.add(new SearchMovieResponseDto(movie));
         }
-        for (Movie m : movieByActorList) {
-            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
-            resultList.add(new SearchMovieResponseDto(movie));
-        }
-        for (Movie m : movieByDirectorList) {
-            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
-            resultList.add(new SearchMovieResponseDto(movie));
-        }
+//        for (Movie m : movieByActorList) {
+//            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
+//            resultList.add(new SearchMovieResponseDto(movie));
+//        }
+//        for (Movie m : movieByDirectorList) {
+//            Movie movie = new Movie(m.getTitle(), m.getYear(), m.getCountry(), m.getPoster());
+//            resultList.add(new SearchMovieResponseDto(movie));
+//        }
 
         return resultList;
     }

@@ -28,7 +28,9 @@ public interface MovieRepository extends JpaRepository<Movie, String> {
 
 
 
-    //search에 필요함
+    //search
+
+    @Query( value = "SELECT p FROM Movie p WHERE p.title LIKE %:title% ")
     List<Movie> findAllByTitle(String title);
     List<Movie> findAllByActor(String actor);
     List<Movie> findAllByDirectors(String director);

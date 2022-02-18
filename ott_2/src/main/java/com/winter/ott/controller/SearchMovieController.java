@@ -3,13 +3,11 @@ package com.winter.ott.controller;
 import com.winter.ott.dto.SearchMovieResponseDto;
 import com.winter.ott.service.SearchMovieService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/search")
 @RequiredArgsConstructor

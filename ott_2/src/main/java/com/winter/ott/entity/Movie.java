@@ -104,7 +104,6 @@ public class Movie {
         this.country = country;
         this.poster = poster;
         this.imdb = imdb;
-
     }
 
     public Movie(String title, int year, String age, double imdb, String rottenTomatoes, int netflix, int disney,
