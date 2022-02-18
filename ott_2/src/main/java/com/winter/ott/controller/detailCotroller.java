@@ -1,7 +1,12 @@
 package com.winter.ott.controller;
 
 import com.winter.ott.dto.MovieDto;
+import com.winter.ott.dto.MovieReviewDto;
+import com.winter.ott.dto.TipDto;
+import com.winter.ott.entity.Tip;
 import com.winter.ott.service.MovieDetailService;
+import com.winter.ott.service.MovieReviewService;
+import com.winter.ott.service.TipService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //import com.winter.ott.dto
@@ -21,27 +27,38 @@ import java.util.List;
 public class detailCotroller {
 
     private final MovieDetailService movieDetailService;
-    // ��ȭ �⺻ ���� ��ȯ
+    // movie info page
     @GetMapping("")
     public List<MovieDto> movieInfo(@PathVariable String movie_id) {
         List<MovieDto> movieInfo = movieDetailService.showMovieInfo(movie_id);
+
+
         //System.out.println(movie_id);
         return movieInfo;
     }
-    // 영화 기본 정보 반환
     @GetMapping("/")
     public String index() {return "/movies/{movie-id}";}
 
-    // 영화 상세 정보
+    // movie detail
     @GetMapping("/details")
     public void details(){log.info("details get...");}
 
-    /// 평가하기 눌렀을때
-    // 포스트 모달 띄우기
+    ///
+    // get reviews
+    private final MovieReviewService movieReviewService;
+    @GetMapping("/reviews")
+    public List<MovieReviewDto> review(@PathVariable String movie_id){
+
+        List<MovieReviewDto> reviews = movieReviewService.showReview(movie_id);
+        log.info("reviews~~~");
+        return reviews;
+    }
+
+    // get review modal
     @GetMapping("/reviews/{review-id}/post")
     public void review(){log.info("review post.........................................");}
 
-    // 포스팅을 하고 리뷰 페이지로
+    // post
     @PostMapping("/reviews/{review-id}/post")
     public String postReview(){
         log.info("review post.........................................");
@@ -49,31 +66,37 @@ public class detailCotroller {
     }
 
 
-    /// 팁 더보기 눌렀을때
-    // 모달창 띄우기
+    ///
+    // tip modal
+    private final TipService tipService;
     @GetMapping("/tips")
-    public void Tip(){ log.info("팁 post");
+    public List<TipDto> Tip(@PathVariable String movie_id){
+
+        List<TipDto> tips = tipService.showTip(movie_id);
+
+        log.info("tip post");
+        return tips;
     }
-    //팁 작성
+    //post tip
     @PostMapping("/tips")
     public String postTip(){
 
-        log.info("팁 post");
+        log.info("tip post");
         //
-        // 코드작성
+        //
         //
         String text="";
         return "/movies/{movie-id}";
     }
 
-/* 팁 수정하기
+/* modify tip
 
     @PutMapping("/tips/modify")
     public String modifyTip(){
 
-        log.info("팁 modify");
+        log.info("tip modify");
         //
-        // 코드작성
+        //
         //
         String text="";
         return text;
