@@ -41,4 +41,13 @@ public class Member {
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="member")
     private List<MemberRole> roles = new ArrayList<>();
+
+
+
+
+    @OneToMany(mappedBy = "member")
+    private List<Review> reviewList = new ArrayList<>();
+
+
+
 }

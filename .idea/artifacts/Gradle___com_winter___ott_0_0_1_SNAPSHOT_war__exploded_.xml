@@ -3,8 +3,6 @@
     <output-path>$PROJECT_DIR$/ott_2/build/libs/exploded/ott-0.0.1-SNAPSHOT.war</output-path>
     <properties id="gradle-properties">
       <options external-project-path="$PROJECT_DIR$/ott_2">
-        <buildTaskPath>:war_exploded</buildTaskPath>
-        <cleanTaskPath>:cleanWar_exploded</cleanTaskPath>
         <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
       </options>
     </properties>

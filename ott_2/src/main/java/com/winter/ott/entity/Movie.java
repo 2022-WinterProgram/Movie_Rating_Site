@@ -134,10 +134,4 @@ public class Movie {
         this.description = description;
         this.poster = poster;
     }
-
-
-
-
-
-
 }

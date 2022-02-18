@@ -19,8 +19,9 @@ import java.util.List;
 public class MovieDetailService {
 
     private final MovieRepository movieRepository;
-    //영화를 전부넣는다?
+
     public List<MovieDto> showMovieInfo(String title) {
+
         List<Movie> movieInfo = movieRepository.findMovieByTitle(title);
         //List<Movie> movieInfo = movieRepository.findAll();
         List<MovieDto> resultList = new ArrayList<>();
@@ -31,7 +32,6 @@ public class MovieDetailService {
                     m.getLanguage(),m.getRuntime(),m.getActor1(),m.getActor2(),m.getActor3(),m.getActor4(),m.getDescription(),m.getPoster());
             resultList.add(new MovieDto(movie));
         }
-
         return resultList;
     }
 

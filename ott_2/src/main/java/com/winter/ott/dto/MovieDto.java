@@ -1,15 +1,14 @@
 package com.winter.ott.dto;
 
-
 import com.winter.ott.entity.Movie;
 import lombok.Data;
 
-import javax.persistence.Column;
+
 
 @Data
 public class MovieDto {
 
-    //영화 테이블에 있는거 다가져옴...
+    //movie table
     private int id;
     private String title;
     private int year;
