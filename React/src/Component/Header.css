@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+.logo{
+    float: left; width: 33%; padding:0px;
+    color: red;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-family: 'Nerko One', cursive;
+    font-size: 60px;
+}
+
+.search_bar{
+    float: left; width: 33%; padding:10px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-right:50px ;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    padding: 20px;    
+}
+
+.Result{
+    float: left;
+} 
+
+.log{
+    margin: 10px;
+    text-align: center;
+    color: white;
+    margin-top: 20px;    
+}
+
+.icon{
+    margin-top: 20px;
+    margin-left: 40px;
+}
