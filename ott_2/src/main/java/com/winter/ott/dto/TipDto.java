@@ -13,7 +13,6 @@ public class TipDto {
     private Member member;
 
 
-
     public TipDto(Tip tip) {
         this.member_tip = tip.getMemberTip();
         this.m_name = tip.getMovieName();

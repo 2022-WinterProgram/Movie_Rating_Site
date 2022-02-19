@@ -15,20 +15,20 @@ import javax.persistence.*;
 public class Review {
 
     @Id
-    @Column()
+    @Column(length = 1000)
     private String memberReview;
 
     @Column()
     private String movieName;
 
     @Column()
-    private int memberRate;
+    private String memberRate;
 
     @ManyToOne()
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
-    public Review(String memberReview, String movieName, int memberRate) {
+    public Review(String memberReview, String movieName, String memberRate) {
         this.memberReview = memberReview;
         this.movieName = movieName;
         this.memberRate = memberRate;
