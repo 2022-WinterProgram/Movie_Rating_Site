@@ -4,6 +4,7 @@ import com.winter.ott.dto.SearchMovieResponseDto;
 import com.winter.ott.dto.SearchPickResponseDto;
 import com.winter.ott.entity.Movie;
 import com.winter.ott.entity.PickMemberMovie;
+import com.winter.ott.entity.Tip;
 import com.winter.ott.repository.MemberMovieRepository;
 import com.winter.ott.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,15 @@ public class MyPagePickService {
         }
 
         return resultList;
+    }
+
+    public void savePick(PickMemberMovie pick){
+        membermovieRepository.save(pick);
+        log.info("save~!~!~!~!~!");
+    }
+    public void deletePick(PickMemberMovie pick){
+        membermovieRepository.delete(pick);
+        log.info("delete!!");
     }
 
 }
