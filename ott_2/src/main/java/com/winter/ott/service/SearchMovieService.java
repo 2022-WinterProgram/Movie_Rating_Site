@@ -17,11 +17,10 @@ public class SearchMovieService {
 
     public List<SearchMovieResponseDto> searchMovies(String keyword) {
         List<Movie> movieByTitleList = movieRepository.findAllByTitle(keyword);
-<<<<<<< HEAD
-=======
+
         //List<Movie> movieByActorList = movieRepository.findAllByActor(keyword);
         //List<Movie> movieByDirectorList = movieRepository.findAllByDirectors(keyword);
->>>>>>> 066735410922fdd3034bddc0fe07eb554f5cd04a
+
         List<SearchMovieResponseDto> resultList = new ArrayList<>();
 
         for (Movie m : movieByTitleList) {

@@ -2,8 +2,11 @@ package com.winter.ott.controller;
 
 
 import com.winter.ott.dto.SearchPickResponseDto;
+import com.winter.ott.dto.SearchReviewResponseDto;
+import com.winter.ott.dto.SearchReviewResponseDto;
 import com.winter.ott.service.MovieDetailService;
 import com.winter.ott.service.MyPagePickService;
+import com.winter.ott.service.MyPageReviewService;
 import com.winter.ott.service.SearchMovieService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -29,6 +32,7 @@ import java.util.List;
 public class MyPageController {
 
     private final MyPagePickService PickService;
+    private final MyPageReviewService ReviewService;
     private final SearchMovieService movieSearchService;
     private final MovieDetailService movieDetailService;
 
@@ -44,6 +48,19 @@ public class MyPageController {
 
         System.out.println(username);
         return moviePickList;
+    }
+
+    @GetMapping("/review")
+    public List<SearchReviewResponseDto> reviewInfo() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = (UserDetails)principal;
+        String username = ((UserDetails) principal).getUsername();
+        List<SearchReviewResponseDto> movieReviewList = ReviewService.searchReview(username);
+
+        log.info("found review lists are these : " + movieReviewList);
+
+        System.out.println(username);
+        return movieReviewList;
     }
 
 

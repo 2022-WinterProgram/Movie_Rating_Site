@@ -15,22 +15,33 @@ import javax.persistence.*;
 public class Review {
 
     @Id
-    @Column(length = 1000)
+    @Column(name = "user_review", length = 1000)
     private String memberReview;
 
-    @Column()
+    @Column(name = "m_name")
     private String movieName;
 
-    @Column()
+    @Column(name="user_rate")
     private String memberRate;
 
     @ManyToOne()
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
+    @Column(name = "user_id")
+    private String username;
+
     public Review(String memberReview, String movieName, String memberRate) {
         this.memberReview = memberReview;
         this.movieName = movieName;
         this.memberRate = memberRate;
+    }
+
+
+    public Review(String memberReview, String movieName, String memberRate, String username) {
+        this.memberReview = memberReview;
+        this.movieName = movieName;
+        this.memberRate = memberRate;
+        this.username = username;
     }
 }
