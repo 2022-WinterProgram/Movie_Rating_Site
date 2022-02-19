@@ -19,6 +19,7 @@ import java.util.List;
 public class TipService {
 
     private final TipRepository tipRepository;
+
     public List<TipDto> showTip(String movieName) {
 
         List<Tip> tips = tipRepository.findTipByMovieName(movieName);
@@ -29,6 +30,12 @@ public class TipService {
             resultList.add(new TipDto(tip));
         }
         return resultList;
+    }
+
+
+    public void tipPost(Tip tip){
+        tipRepository.save(tip);
+        log.info("save~!~!~!~!~!");
     }
 
 }

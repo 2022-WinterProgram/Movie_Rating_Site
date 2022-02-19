@@ -32,4 +32,9 @@ public class MovieReviewService {
         return resultList;
     }
 
+    public void reviewPost(Review review){
+        reviewRepository.save(review);
+        log.info("save~!~!~!~!~!");
+    }
+
 }

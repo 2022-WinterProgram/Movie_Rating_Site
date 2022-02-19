@@ -10,7 +10,7 @@ public class MovieReviewDto {
 
     private String member_review;
     private String m_name;
-    private int member_rate;
+    private String member_rate;
     private Member member;
 
     public MovieReviewDto(Review review) {

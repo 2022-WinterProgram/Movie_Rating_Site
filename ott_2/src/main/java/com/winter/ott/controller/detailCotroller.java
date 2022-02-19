@@ -3,6 +3,7 @@ package com.winter.ott.controller;
 import com.winter.ott.dto.MovieDto;
 import com.winter.ott.dto.MovieReviewDto;
 import com.winter.ott.dto.TipDto;
+import com.winter.ott.entity.Review;
 import com.winter.ott.entity.Tip;
 import com.winter.ott.service.MovieDetailService;
 import com.winter.ott.service.MovieReviewService;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //import com.winter.ott.dto
 
@@ -50,42 +52,52 @@ public class detailCotroller {
     public List<MovieReviewDto> review(@PathVariable String movie_id){
 
         List<MovieReviewDto> reviews = movieReviewService.showReview(movie_id);
-        log.info("reviews~~~");
+        log.info("reviews~~~ list");
         return reviews;
     }
 
-    // get review modal
-    @GetMapping("/reviews/{review-id}/post")
+    // get review modal (write review)
+    @GetMapping("/reviews/write")
     public void review(){log.info("review post.........................................");}
 
     // post
-    @PostMapping("/reviews/{review-id}/post")
-    public String postReview(){
+
+    @PostMapping("/reviews/write")
+    public String postReview(@PathVariable String movie_id, @RequestBody Map<String, String> param){
         log.info("review post.........................................");
-        return "redirect:/movies/{movie-id}/reviews";
+
+        Review review = new Review(param.get("memberReview"),movie_id, param.get("memberRate"));
+        movieReviewService.reviewPost(review);
+        return "redirect:/movies/reviews";
     }
 
 
     ///
-    // tip modal
+    // tip modal list?
     private final TipService tipService;
     @GetMapping("/tips")
     public List<TipDto> Tip(@PathVariable String movie_id){
 
         List<TipDto> tips = tipService.showTip(movie_id);
 
-        log.info("tip post");
+        log.info("tip list~");
         return tips;
     }
-    //post tip
-    @PostMapping("/tips")
-    public String postTip(){
 
+    // get tip modal (write tip)
+    @GetMapping("/tips/write")
+    public void Tip(){log.info("tip modal.........................................");}
+
+    //post tip
+    @PostMapping("/tips/write")
+
+    public String postTip(@PathVariable String movie_id, @RequestBody Map<String, String> param){
+
+
+        Tip tip = new Tip(param.get("memberTip"), movie_id);
+        tipService.tipPost(tip);
         log.info("tip post");
-        //
-        //
-        //
-        String text="";
+
         return "/movies/{movie-id}";
     }
 

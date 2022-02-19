@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Tip {
 
     @Id
-    @Column()
+    @Column(length = 1000)
     private String memberTip;
 
     @Column()
