@@ -7,6 +7,8 @@ import NoResult from '../Component/NoResult';
 import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
 import {ReactComponent as User} from "../Icon/Property 1=user_big.svg";
 import "./Header.css";
+import LoginModal from "./LoginModal"
+import JoinModal from "./JoinModal"
 import inputChange from "../Container/MovieSearchContainer";
 import handleButton from "../Container/MovieSearchContainer";
 import result from "../Container/MovieSearchContainer";
@@ -55,6 +57,16 @@ const Header=()=>{
       } catch (e) {
         console.log("error ", e);
       }
+
+
+    };
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+        setModalOpen(false);
     };
 
 
@@ -73,9 +85,19 @@ return(
        {/* </div> */}
        </div>
         <div className='login'>
-            <h1 className='log'>Login</h1>
+            <React.Fragment>
+            <h1 className='log' onClick={openModal}>Login</h1>
+                <LoginModal open={modalOpen} close={closeModal} header="Diflixpedia Login">
+                </LoginModal>
+            </React.Fragment>
             <h1 className='log'>|</h1>
-            <h1 className='log'>Join</h1>
+
+            <React.Fragment>
+                <h1 className='log' onClick={openModal}>Join</h1>
+                <JoinModal open={modalOpen} close={closeModal} header="Diflixpedia Join">
+                </JoinModal>
+            </React.Fragment>
+
             <User className='icon' width={40} height={40} fill="white" />
         </div>
 

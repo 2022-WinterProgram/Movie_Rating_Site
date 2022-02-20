@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 @RequestMapping("/login")
 @Log4j2
