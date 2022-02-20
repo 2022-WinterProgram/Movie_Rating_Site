@@ -39,24 +39,31 @@ const Header=()=>{
      }
 
 
-  const handleButton = async (value) => {
-        try {
-         const res = await axios.get('http://localhost:8080/search/'+value);
-       
-          if (res && res.status === 200) {
-            const { data } = res;
-            console.log(data);
+     const handleButton = async (value) => {
+      try {
+       const res = await axios.get('http://localhost:8080/search/'+value);
+     
+        if (res && res.status === 200) {
+          const { data } = res;
+          console.log(data);
 
-            setItems(data);
-            const len=data.length;
-            setLen(len);
-            
-          }
-        } catch (e) {
-          console.log("error ", e);
+          setItems(data);
+          const len=data.length;
+          setLen(len);
+          <Row>
+          {items&&items.map((item) => {
+              return (
+              <Col xs={24} sm={12} md={6} lg={4} xl={4}>
+                  <MovieCard item={item} ></MovieCard>;
+              </Col>
+              );
+          })}
+          </Row>
         }
-          
-      };
+      } catch (e) {
+        console.log("error ", e);
+      }
+    };
 
 
 //header
@@ -82,7 +89,7 @@ return(
 
 
         <div className='Result'>
-            <Row>
+            {/* <Row>
             {items&&items.map((item) => {
                 return (
                 <Col xs={24} sm={12} md={6} lg={4} xl={4}>
@@ -90,7 +97,7 @@ return(
                 </Col>
                 );
             })}
-            </Row>
+            </Row> */}
       </div>
     </div>
 );
