@@ -11,6 +11,8 @@ import inputChange from "../Container/MovieSearchContainer";
 import handleButton from "../Container/MovieSearchContainer";
 import result from "../Container/MovieSearchContainer";
 import {items, setItems} from "../Container/MovieSearchContainer";
+import SearchResult from './SearchResult';
+import Search from 'antd/lib/transfer/search';
 const searchStyle={
     border:'solid',
     borderRadius:'10px',
@@ -29,7 +31,6 @@ const Header=()=>{
   const urlParams=getUrl.searchParams;
   const keyword=urlParams.get("keyword")
   const [result, setResult]=useState('');
-  const [search, setSearch]=useState('');
   const [items, setItems] = useState();
   const [len, setLen]=useState();
   
@@ -49,16 +50,7 @@ const Header=()=>{
 
           setItems(data);
           const len=data.length;
-          setLen(len);
-          <Row>
-          {items&&items.map((item) => {
-              return (
-              <Col xs={24} sm={12} md={6} lg={4} xl={4}>
-                  <MovieCard item={item} ></MovieCard>;
-              </Col>
-              );
-          })}
-          </Row>
+          setLen(len);          
         }
       } catch (e) {
         console.log("error ", e);
@@ -87,9 +79,8 @@ return(
             <User className='icon' width={40} height={40} fill="white" />
         </div>
 
-
         <div className='Result'>
-            {/* <Row>
+            <Row>
             {items&&items.map((item) => {
                 return (
                 <Col xs={24} sm={12} md={6} lg={4} xl={4}>
@@ -97,7 +88,7 @@ return(
                 </Col>
                 );
             })}
-            </Row> */}
+            </Row>
       </div>
     </div>
 );
