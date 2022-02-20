@@ -50,10 +50,12 @@ const Header=()=>{
             setItems(data);
             const len=data.length;
             setLen(len);
+            
           }
         } catch (e) {
           console.log("error ", e);
         }
+          
       };
 
 
