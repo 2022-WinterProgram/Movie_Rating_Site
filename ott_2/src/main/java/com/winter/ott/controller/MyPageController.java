@@ -26,7 +26,7 @@ import java.util.List;
 
 
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/mypage")
 @Log4j2
@@ -43,7 +43,7 @@ public class MyPageController {
     public List<SearchMovieResponseDto> pickInfo() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails userDetails = (UserDetails)principal;
-        String username = ((UserDetails) principal).getUsername();
+        String username = userDetails.getUsername();
         List<SearchPickResponseDto> moviePickList = PickService.searchPick(username);
         List<String> movieTitlePickList = PickService.searchPickTitle(username);
 
@@ -67,7 +67,7 @@ public class MyPageController {
     public List<SearchReviewResponseDto> reviewInfo() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails userDetails = (UserDetails)principal;
-        String username = ((UserDetails) principal).getUsername();
+        String username = userDetails.getUsername();
         List<SearchReviewResponseDto> movieReviewList = ReviewService.searchReview(username);
 
         log.info("found review lists are these : " + movieReviewList);

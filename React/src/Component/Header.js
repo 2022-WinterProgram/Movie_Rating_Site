@@ -33,6 +33,7 @@ const Header=()=>{
   const urlParams=getUrl.searchParams;
   const keyword=urlParams.get("keyword")
   const [result, setResult]=useState('');
+  const [pickresult, setPickresult] = useState('');
   const [items, setItems] = useState();
   const [len, setLen]=useState();
   
@@ -57,6 +58,25 @@ const Header=()=>{
       } catch (e) {
         console.log("error ", e);
       }
+
+
+    };
+
+    const pickHandleButton = async () => {
+        try {
+            const res = await axios.get('http://localhost:8080/mypage/pick');
+
+            if (res && res.status === 200) {
+                const { data } = res;
+                console.log(data);
+
+                setItems(data);
+                const len=data.length;
+                setLen(len);
+            }
+        } catch (e) {
+            console.log("error ", e);
+        }
 
 
     };
@@ -110,7 +130,11 @@ return(
                 </JoinModal>
             </React.Fragment>
 
-            <User className='icon' width={40} height={40} fill="white" />
+            <User className='icon' width={40} height={40} fill="white" onClick={()=>pickHandleButton()}/>
+
+
+
+
         </div>
 
         <div className='Result'>

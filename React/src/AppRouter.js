@@ -4,6 +4,7 @@ import App from "./App";
 import MovieSearchContainer from "./Container/MovieSearchContainer";
 import NoResult from './NoResult';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MoviePickContainer from "./Container/MoviePickContainer";
 
 class AppRouter extends React.Component {
   render() {
@@ -20,6 +21,9 @@ class AppRouter extends React.Component {
               </Route>
               <Route path="/search">
                 <MovieSearchContainer/>
+              </Route>
+              <Route path="/pick">
+                <MoviePickContainer/>
               </Route>
             </Switch>
           </div>
