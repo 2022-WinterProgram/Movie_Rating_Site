@@ -1,6 +1,7 @@
 package com.winter.ott.controller;
 
 
+import com.winter.ott.dto.SearchMovieResponseDto;
 import com.winter.ott.dto.SearchPickResponseDto;
 import com.winter.ott.dto.SearchReviewResponseDto;
 import com.winter.ott.dto.SearchReviewResponseDto;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,16 +40,27 @@ public class MyPageController {
 
 
     @GetMapping("/pick")
-    public List<SearchPickResponseDto> pickInfo() {
+    public List<SearchMovieResponseDto> pickInfo() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails userDetails = (UserDetails)principal;
         String username = ((UserDetails) principal).getUsername();
         List<SearchPickResponseDto> moviePickList = PickService.searchPick(username);
+        List<String> movieTitlePickList = PickService.searchPickTitle(username);
 
-        log.info("found lists are these : " + moviePickList);
+
+        log.info("found lists are these : " + movieTitlePickList);
+
+        List<SearchMovieResponseDto> movieList = new ArrayList<>();
+
+
+        for(String s : movieTitlePickList)
+        {
+            movieList.addAll(movieSearchService.searchMovies(s));
+        }
+
 
         System.out.println(username);
-        return moviePickList;
+        return movieList;
     }
 
     @GetMapping("/review")

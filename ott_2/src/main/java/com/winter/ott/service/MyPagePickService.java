@@ -38,6 +38,24 @@ public class MyPagePickService {
         return resultList;
     }
 
+
+    public List<String> searchPickTitle(String username) {
+        List<PickMemberMovie> movieByUsername = membermovieRepository.findPickMemberMovieByUsername(username);
+
+        List<String> resultList = new ArrayList<>();
+
+        for (PickMemberMovie p : movieByUsername) {
+            PickMemberMovie pick = new PickMemberMovie(p.getUsername(), p.getTitle());
+            resultList.add(p.getTitle());
+        }
+
+        return resultList;
+    }
+
+
+
+
+
     public void savePick(PickMemberMovie pick){
         membermovieRepository.save(pick);
         log.info("save~!~!~!~!~!");
