@@ -6,6 +6,8 @@ import com.winter.ott.dto.SearchMovieResponseDto;
 import com.winter.ott.service.MainService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,7 +31,9 @@ public class LoginController {
     @ResponseBody
     public String loginSuccess()
     {
-        String resultmsg = "<script>alert('Login Successful. Welcome!');location.href='/'</script>";
+
+
+        String resultmsg = "<script>alert('Login Successful. Welcome!');location.href='http://localhost:3000'</script>";
         return resultmsg;
     }
 
@@ -37,7 +41,7 @@ public class LoginController {
     @ResponseBody
     public String loginFail()
     {
-        String resultmsg = "<script>alert('Wrong ID or password. Please try again.');location.href='/login'</script>";
+        String resultmsg = "<script>alert('Logout / Wrong ID or password. Login again!');location.href='http://localhost:3000'</script>";
                 return resultmsg;
     }
 }

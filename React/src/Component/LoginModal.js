@@ -49,6 +49,7 @@ export class LoginModal extends Component {
                                 &times;
                             </button>
                         </header>
+                        <form action="http://localhost:8080/login" method="POST">
                         <main>
                             {this.props.children}
                             <p><input
@@ -67,15 +68,14 @@ export class LoginModal extends Component {
                             />
                         </main>
                         <footer>
-                            <button className="loginBtn" onClick={this.loginClickHandler}>
-                                {" "}
-                                Login{" "}
-                            </button>
+                            <input className="loginBtn" type="submit" value="Login" />
                             &nbsp;
+                            <button className="loginBtn" onClick="location.href='http://localhost:8080/logout';">Logout</button>
                             <button className="close" onClick={close}>
                                 close
                             </button>
                         </footer>
+                        </form>
                     </section>
                 ) : null}
             </div>
