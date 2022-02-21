@@ -1,25 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+.header{
+    background-color: white;
+    width:100%;
+    height:100px;
+    margin-bottom: 20px;
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
 
 .logo{
-    float: left; width: 33%; padding:0px;
+    line-height: 100px;
+    text-align: center;
+    float: left; 
+    width: 300px; 
     color: red;
-    margin-left: 50px;
-    margin-top: 20px;
+    margin-left: 30px;
     font-family: 'Nerko One', cursive;
     font-size: 60px;
 }
 
 .search_bar{
-    float: left; width: 33%; padding:10px;
-    margin-right: 50px;
-    margin-top: 10px;
-    margin-right:50px ;
+    width: 520px;
+    height: 50px;
+    border-bottom: 4px solid black;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.search_bar input{
+    flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
+    height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: none;
+    outline: none;
+    font-size: 18px;
 }
 
 .login{
+    background-color: aqua;
     display: flex;
-    justify-content: center;
-    padding: 20px;    
+    justify-content: flex-end;
+    float: right;
+    margin-right: 50px;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0,-50%);    
 }
 
 .Result{
@@ -27,13 +56,10 @@
 } 
 
 .log{
-    margin: 10px;
-    text-align: center;
-    color: white;
-    margin-top: 20px;    
+    color: black;
 }
 
 .icon{
-    margin-top: 20px;
-    margin-left: 40px;
+    fill: black;
 }
+

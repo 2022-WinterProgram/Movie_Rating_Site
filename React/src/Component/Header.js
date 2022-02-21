@@ -15,17 +15,22 @@ import result from "../Container/MovieSearchContainer";
 import {items, setItems} from "../Container/MovieSearchContainer";
 import SearchResult from './SearchResult';
 import Search from 'antd/lib/transfer/search';
-const searchStyle={
-    border:'solid',
-    borderRadius:'10px',
-    height:'8vh',
-    width:'70vh',
-  }
-  const searchButtonStyle={
-    marginTop:'2vh',
-    marginLeft:'2vh'
-  }
 
+// const searchStyle={
+//     border:'solid',
+//     borderRadius:'10px',
+//     height:'4vh',
+//     width:'70vh',
+//   }
+const searchButtonStyle={
+    flex: 1, /* search-box내부에서 1만큼의 크기를 차지(비율) */
+    height: '46px',
+    margin: 0,
+    padding: 0,
+    border: 'none',
+    outline: 'none',
+    color: '#ffffff',
+}
 
 
 const Header=()=>{
@@ -106,21 +111,22 @@ return(
     <div className='header'>
         {/*logo position */}
         <div className='logo'>
-        Diflixpedia
-      </div>
-      <div className='search_bar'
-        style={{ display: 'flex', justifyContent: 'center', padding: '2rem' }}>
+            Diflixpedia
+        </div>
+        <div className='search_bar'>
         {/* <div className='search_bar'> */}
-          <input type="text" id=""  placeholder="검색어를 입력해주세요" style={searchStyle} onChange={inputChange} />
-          <Search_Icon className='icon' width={35} height={35}  style={searchButtonStyle} fill="white" onClick={()=>handleButton(result)}/>
-       {/* </div> */}
-       </div>
+            <input type="text" id=""  placeholder="검색어를 입력해주세요" onChange={inputChange} />
+            <Search_Icon className='icon' width={35} height={35} style={searchButtonStyle} onClick={()=>handleButton(result)}/>
+        {/* </div> */}
+        </div>
+        
         <div className='login'>
             <React.Fragment>
             <h1 className='log' onClick={openloginModal}>Login</h1>
                 <LoginModal open={loginmodalOpen} close={closeloginModal} header="Diflixpedia Login">
                 </LoginModal>
             </React.Fragment>
+            
             <h1 className='log'>|</h1>
 
 
@@ -130,11 +136,7 @@ return(
                 </JoinModal>
             </React.Fragment>
 
-            <User className='icon' width={40} height={40} fill="white" onClick={()=>pickHandleButton()}/>
-
-
-
-
+            {/* <User className='icon' width={35} height={35} onClick={()=>pickHandleButton()}/> */}
         </div>
 
         <div className='Result'>
