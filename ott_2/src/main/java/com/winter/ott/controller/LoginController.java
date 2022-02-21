@@ -25,6 +25,14 @@ public class LoginController {
     }
 
 
+    @GetMapping("/success")
+    @ResponseBody
+    public String loginSuccess()
+    {
+        String resultmsg = "<script>alert('Login Successful. Welcome!');location.href='/'</script>";
+        return resultmsg;
+    }
+
     @GetMapping("/fail")
     @ResponseBody
     public String loginFail()

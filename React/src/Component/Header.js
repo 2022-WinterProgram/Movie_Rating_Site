@@ -8,7 +8,7 @@ import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
 import {ReactComponent as User} from "../Icon/Property 1=user_big.svg";
 import "./Header.css";
 import LoginModal from "./LoginModal"
-import JoinModal from "./JoinModal"
+ import JoinModal from "./JoinModal"
 import inputChange from "../Container/MovieSearchContainer";
 import handleButton from "../Container/MovieSearchContainer";
 import result from "../Container/MovieSearchContainer";
@@ -60,13 +60,24 @@ const Header=()=>{
 
 
     };
-    const [modalOpen, setModalOpen] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
+
+    const [loginmodalOpen, setloginModalOpen] = useState(false);
+
+    const openloginModal = () => {
+        setloginModalOpen(true);
     };
-    const closeModal = () => {
-        setModalOpen(false);
+    const closeloginModal = () => {
+        setloginModalOpen(false);
+    };
+
+    const [joinmodalOpen, setjoinModalOpen] = useState(false);
+
+    const openjoinModal = () => {
+        setjoinModalOpen(true);
+    };
+    const closejoinModal = () => {
+        setjoinModalOpen(false);
     };
 
 
@@ -86,15 +97,16 @@ return(
        </div>
         <div className='login'>
             <React.Fragment>
-            <h1 className='log' onClick={openModal}>Login</h1>
-                <LoginModal open={modalOpen} close={closeModal} header="Diflixpedia Login">
+            <h1 className='log' onClick={openloginModal}>Login</h1>
+                <LoginModal open={loginmodalOpen} close={closeloginModal} header="Diflixpedia Login">
                 </LoginModal>
             </React.Fragment>
             <h1 className='log'>|</h1>
 
+
             <React.Fragment>
-                <h1 className='log' onClick={openModal}>Join</h1>
-                <JoinModal open={modalOpen} close={closeModal} header="Diflixpedia Join">
+                <h1 className='log' onClick={openjoinModal}>Join</h1>
+                <JoinModal open={joinmodalOpen} close={closejoinModal} header="Diflixpedia Join">
                 </JoinModal>
             </React.Fragment>
 

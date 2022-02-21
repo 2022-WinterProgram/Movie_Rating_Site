@@ -22,8 +22,8 @@ export class JoinModal extends Component {
             method: "POST",
             cache: "no-cache",
             headers: {
-            //    "Content-Type": "multipart/form-data",
-                   "Content-Type" : "application/x-www-form-urlencoded"
+                //    "Content-Type": "multipart/form-data",
+                "Content-Type" : "application/x-www-form-urlencoded"
             },
             body: new URLSearchParams({
                 name: name,
@@ -34,7 +34,7 @@ export class JoinModal extends Component {
         })
             .then((res) => res.json())
             .then((res) => console.log(res));
-            this.setState(this.props.close);
+        this.setState(this.props.close);
     };
 
     render() {
@@ -51,40 +51,43 @@ export class JoinModal extends Component {
                                 &times;
                             </button>
                         </header>
-                        <main>
-                            {this.props.children}
-                            <p><input
-                                name="username"
-                                className="loginId"
-                                type="text"
-                                placeholder="username"
-                                onChange={this.loginHandler}
-                            /></p>
-                            <p><input
-                                name="email"
-                                className="loginId"
-                                type="text"
-                                placeholder="e-mail"
-                                onChange={this.loginHandler}
-                            /></p>
-                            <input
-                                name="password"
-                                className="loginPw"
-                                type="password"
-                                placeholder="password"
-                                onChange={this.loginHandler}
-                            />
-                        </main>
-                        <footer>
-                            <button className="loginBtn" onClick={this.loginClickHandler}>
-                                {" "}
-                                Join{" "}
-                            </button>
-                            &nbsp;
-                            <button className="close" onClick={close}>
-                                close
-                            </button>
-                        </footer>
+                        <form action="http://localhost:8080/member" method="POST">
+                            <main>
+                                {this.props.children}
+                                <p><input
+                                    id="name"
+                                    name="name"
+                                    className="loginId"
+                                    type="text"
+                                    placeholder="username"
+                                    onChange={this.loginHandler}
+                                /></p>
+                                <p><input
+                                    id="email"
+                                    name="email"
+                                    className="loginId"
+                                    type="email"
+                                    placeholder="e-mail"
+                                    onChange={this.loginHandler}
+                                /></p>
+                                <input
+                                    id="password"
+                                    name="password"
+                                    className="loginPw"
+                                    type="password"
+                                    placeholder="password"
+                                    onChange={this.loginHandler}
+                                />
+
+                            </main>
+                            <footer>
+                                <input className="loginBtn" type="submit" value="Join" />
+                                &nbsp;
+                                <button className="close" onClick={close}>
+                                    close
+                                </button>
+                            </footer>
+                        </form>
                     </section>
                 ) : null}
             </div>

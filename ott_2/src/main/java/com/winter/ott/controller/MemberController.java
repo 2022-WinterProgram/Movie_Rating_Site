@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -19,13 +20,15 @@ public class MemberController {
     private MemberRepository memberRepository;
 
     @PostMapping("")
-    public String create(Member member) {
+    public RedirectView create(Member member) {
         MemberRole role = new MemberRole();
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         member.setPassword(passwordEncoder.encode(member.getPassword()));
         role.setRoleName("USER");
         member.setRoles(Arrays.asList(role));
         memberRepository.save(member);
-        return "redirect:/";
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:3000");
+        return redirectView;
     }
 }

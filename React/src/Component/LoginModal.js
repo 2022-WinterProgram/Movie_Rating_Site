@@ -12,7 +12,7 @@ export class LoginModal extends Component {
     loginHandler = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-    };   ////계산된 속성명 사용
+    };
 
     loginClickHandler = () => {
         const { username, password } = this.state;
