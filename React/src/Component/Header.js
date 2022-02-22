@@ -1,20 +1,19 @@
 import React, { Fragment} from 'react';
-import MovieCard from '../Component/MovieCard';
+import MovieCard from './MovieCard';
 import { Row, Col } from 'antd';
 import { useEffect,  useState } from 'react';
 import axios from 'axios';
-import NoResult from '../Component/NoResult';
+import NoResult from './NoResult';
 import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
-import {ReactComponent as User} from "../Icon/Property 1=user_big.svg";
-import "./Header.css";
+import "../css/Header.css";
 import LoginModal from "./LoginModal"
  import JoinModal from "./JoinModal"
-import inputChange from "../Container/MovieSearchContainer";
-import handleButton from "../Container/MovieSearchContainer";
-import result from "../Container/MovieSearchContainer";
-import {items, setItems} from "../Container/MovieSearchContainer";
-import SearchResult from './SearchResult';
-import Search from 'antd/lib/transfer/search';
+// import inputChange from "../Container/MovieSearchContainer";
+// import handleButton from "../Container/MovieSearchContainer";
+// import result from "../Container/MovieSearchContainer";
+// import {items, setItems} from "../Container/MovieSearchContainer";
+// import SearchResult from './SearchResult';
+// import Search from 'antd/lib/transfer/search';
 
 // const searchStyle={
 //     border:'solid',

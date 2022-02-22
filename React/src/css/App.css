@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+
+.App-body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(20, 20, 20, 0) 10%,
+      rgba(20, 20, 20, 0.25) 20%,
+      rgba(20, 20, 20, 0.5) 40%,
+      rgba(20, 20, 20, 0.75) 55%,
+      rgba(20, 20, 20, 1) 100%
+    ), url();
+  background-size: cover;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

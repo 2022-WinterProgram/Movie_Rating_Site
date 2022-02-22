@@ -1,5 +1,5 @@
 import React from 'react';
-import './MovieCard.scss';
+import '../css/MovieCard.scss';
 import styled from 'styled-components';
 import NoResult from './NoResult';
 import {

@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
-import App from "./App";
-import MovieSearchContainer from "./Container/MovieSearchContainer";
+import App from "../src/App";
+import MovieSearchContainer from "../container/MovieSearchContainer";
 import NoResult from './NoResult';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MoviePickContainer from "./Container/MoviePickContainer";
+import MoviePickContainer from "../container/MoviePickContainer";
 
 class AppRouter extends React.Component {
   render() {
