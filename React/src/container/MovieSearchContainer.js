@@ -29,15 +29,24 @@ const LoginStyle={
   float:'right'
   
 }
-class MovieSearchContainer extends Component {
+const MovieSearchContainer = () => {
 
-  inputChange=(e)=>{
+  const getUrl=new URL(window.location.href);
+  const urlParams=getUrl.searchParams;
+  const keyword=urlParams.get("keyword")
+  const [result, setResult]=useState('');
+  const [search, setSearch]=useState('');
+  const [items, setItems] = useState();
+  const [len, setLen]=useState();
+  console.log(items);
+
+  const inputChange=(e)=>{
       const value=e.target.value;
       setResult(value);
   }
 
 
-  handleButton = async (value) => {
+  const handleButton = async (value) => {
     try {
       const res = await axios.get('http://localhost:8080/search/'+value);
     
@@ -54,19 +63,8 @@ class MovieSearchContainer extends Component {
     }
   };
 
-  render(){
-    const getUrl=new URL(window.location.href);
-    const urlParams=getUrl.searchParams;
-    const keyword=urlParams.get("keyword")
-    const [result, setResult]=useState('');
-    const [search, setSearch]=useState('');
-    const [items, setItems] = useState();
-    const [len, setLen]=useState();
-    console.log(items);
-
     return(
       <SearchResultPage />
     )
-  }
 };
 export default MovieSearchContainer;

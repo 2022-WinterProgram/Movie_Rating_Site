@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import MovieCard from "./MovieCard";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
-class SearchPage extends Component{
+const SearchPage = () => {
 
-    id = 1;
-    state = {};
+    var id = 1;
+    const state = {};
 
-    mapping(){
+    const mapping=()=>{
         const { MovieCard } = this.props;
         return MovieCard.map((itemdata, insertIndex) => {
             return (
@@ -22,17 +24,16 @@ class SearchPage extends Component{
                         />
                     </Col>
                 </Row>
-
             );
         });
     }
-    render(){
-        return(
-            <div className='ResultContainer'>
-                {this.mapping()}
-            </div>
-        );
-    }
+
+    return(
+        <div className='ResultContainer'>
+            {this.mapping()}
+        </div>
+    );    
+
 }
 
 export default SearchPage;

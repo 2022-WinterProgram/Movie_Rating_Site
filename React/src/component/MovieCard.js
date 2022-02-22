@@ -1,6 +1,7 @@
 import React from 'react';
 
-function MovieCard({index ,title, image_url, year, country }) {
+const MovieCard = ({ item }) => {
+  const { index, title, image_url, year, country} = item;
     return (
         <li className = 'box' key={index}>
             <img src = {image_url} className='model' alt=""/>
