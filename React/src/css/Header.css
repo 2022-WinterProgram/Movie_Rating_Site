@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 .header{
     background-color: white;
     width:100%;
@@ -37,7 +38,6 @@
     outline: none;
     font-size: 18px;
 }
-
 .login{
 
     display: flex;
@@ -54,21 +54,15 @@
 
     */
 }
-
 .Result{
     float: left;
 } 
 
 .log{
     color: black;
-    padding: 5px;
 }
 
 .icon{
     fill: black;
-}
-
-#mypage {
-    margin-left:15px;
 }
 

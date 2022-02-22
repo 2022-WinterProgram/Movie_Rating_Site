@@ -135,7 +135,7 @@ return(
                 </JoinModal>
             </React.Fragment>
 
-            { <User className='icon' id='mypage' width={35} height={35} onClick={()=>pickHandleButton()}/> }
+            {/* { <User className='icon' id='mypage' width={35} height={35} onClick={()=>pickHandleButton()}/> } */}
         </div>
 
         <div className='Result'>
