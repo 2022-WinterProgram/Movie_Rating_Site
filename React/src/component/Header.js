@@ -136,19 +136,7 @@ return(
             </React.Fragment>
 
             {/* { <User className='icon' id='mypage' width={35} height={35} onClick={()=>pickHandleButton()}/> } */}
-        </div>
-
-        <div className='Result'>
-            <Row>
-            {items&&items.map((item) => {
-                return (
-                <Col xs={24} sm={12} md={6} lg={4} xl={4}>
-                    <MovieCard item={item} ></MovieCard>;
-                </Col>
-                );
-            })}
-            </Row>
-      </div>
+        </div>    
     </div>
 );
 };

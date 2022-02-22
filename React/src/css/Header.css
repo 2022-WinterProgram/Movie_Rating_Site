@@ -43,16 +43,16 @@
     display: flex;
     float: right;
     margin-right: 80px;
-    margin-top: 30px;
+    margin-top: 8px;
     top: 50%;
 
- /*   justify-content: flex-end;
+   /* justify-content: flex-end;
 
     transform: translate(0,-50%);
     position: absolute;
-    right: 0%;
+    right: 0%; */
 
-    */
+   
 }
 .Result{
     float: left;
