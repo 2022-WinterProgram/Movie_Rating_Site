@@ -13,7 +13,7 @@ export class JoinModal extends Component {
     loginHandler = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-    };   ////°è»êµÈ ¼Ó¼º¸í »ç¿ë
+    };   ////Â°Ã¨Â»ÃªÂµÃˆ Â¼Ã“Â¼ÂºÂ¸Ã­ Â»Ã§Â¿Ã«
 
     loginClickHandler = () => {
         const { name, email, password } = this.state;
