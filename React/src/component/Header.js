@@ -1,26 +1,16 @@
 import React, { Fragment} from 'react';
 import MovieCard from './MovieCard';
-import { Row, Col } from 'antd';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { useEffect,  useState } from 'react';
 import axios from 'axios';
 import NoResult from './NoResult';
-import {ReactComponent as Search_Icon} from "../icon/Property 1=search 1.svg";
+import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
 import "../css/Header.css";
-import LoginModal from "./LoginModal"
- import JoinModal from "./JoinModal"
-// import inputChange from "../Container/MovieSearchContainer";
-// import handleButton from "../Container/MovieSearchContainer";
-// import result from "../Container/MovieSearchContainer";
-// import {items, setItems} from "../Container/MovieSearchContainer";
-// import SearchResult from './SearchResult';
-// import Search from 'antd/lib/transfer/search';
+import LoginModal from "./LoginModal";
+import JoinModal from "./JoinModal";
+import { Link } from 'react-router-dom';
 
-// const searchStyle={
-//     border:'solid',
-//     borderRadius:'10px',
-//     height:'4vh',
-//     width:'70vh',
-//   }
 const searchButtonStyle={
     flex: 1, /* search-box내부에서 1만큼의 크기를 차지(비율) */
     height: '46px',
@@ -31,7 +21,6 @@ const searchButtonStyle={
     color: '#ffffff',
 }
 
-
 const Header=()=>{
     const getUrl=new URL(window.location.href);
   const urlParams=getUrl.searchParams;
@@ -40,6 +29,7 @@ const Header=()=>{
   const [pickresult, setPickresult] = useState('');
   const [items, setItems] = useState();
   const [len, setLen]=useState();
+  const [view, setView]=useState(true)
   
   const inputChange=(e)=>{
          const value=e.target.value;
@@ -49,6 +39,7 @@ const Header=()=>{
 
      const handleButton = async (value) => {
       try {
+          setView(true)
        const res = await axios.get('http://localhost:8080/search/'+value);
      
         if (res && res.status === 200) {
@@ -58,12 +49,12 @@ const Header=()=>{
           setItems(data);
           const len=data.length;
           setLen(len);          
+          
         }
       } catch (e) {
         console.log("error ", e);
       }
-
-
+      
     };
 
     const pickHandleButton = async () => {
@@ -109,16 +100,19 @@ const Header=()=>{
 return(
     <div className='header'>
         {/*logo position */}
+        <Link to='/'>
         <div className='logo'>
             Diflixpedia
         </div>
-        <div className='search_bar'>
-        {/* <div className='search_bar'> */}
+        </Link>
+        {/* <Link to='/search'> */}
+         <div className='search_bar'>
+   
             <input type="text" id=""  placeholder="검색어를 입력해주세요" onChange={inputChange} />
             <Search_Icon className='icon' width={35} height={35} style={searchButtonStyle} onClick={()=>handleButton(result)}/>
-        {/* </div> */}
-        </div>
-        
+          
+        </div> 
+        {/* </Link> */}
         <div className='login'>
             <React.Fragment>
             <h1 className='log' onClick={openloginModal}>Login</h1>
@@ -136,7 +130,20 @@ return(
             </React.Fragment>
 
             {/* { <User className='icon' id='mypage' width={35} height={35} onClick={()=>pickHandleButton()}/> } */}
-        </div>    
+        </div>
+
+        <div className='Result'>
+            <Row>
+            {items&&items.map((item) => {
+                return (
+                <Col xs={24} sm={12} md={6} lg={4} xl={4}>
+                    <MovieCard item={item} ></MovieCard>
+                </Col>
+                );
+            })}
+            </Row>
+      </div>
+    
     </div>
 );
 };
