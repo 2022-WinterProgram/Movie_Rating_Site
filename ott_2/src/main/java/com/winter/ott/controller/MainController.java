@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/main")
 @Log4j2
@@ -44,7 +45,7 @@ public class MainController {
     @GetMapping("/GenreList2")
     public List<MainDto> genre2(){
         log.info("GenreList2...........");
-        List<MainDto> movieList_genre2 = mainService.listByGenre("Si-Fi");
+        List<MainDto> movieList_genre2 = mainService.listByGenre("Sci-Fi");
         return movieList_genre2;
     }
 

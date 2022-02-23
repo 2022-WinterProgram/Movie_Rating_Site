@@ -2,15 +2,15 @@ import React, { Fragment} from 'react';
 import MovieCard from '../component/MovieCard';
 import { Input, Row, Col } from 'antd';
 import { useEffect,  useState } from 'react';
-import styles from "./SerachBar.module.css";
+// import styles from "./SerachBar.module.css";
 import axios from 'axios';
 import NoResult from '../component/NoResult';
-import {ReactComponent as X_img} from "../Icon/bi_x-square.svg";
-import {ReactComponent as Ab} from "../Icon/akar-icons_circle-chevron-up.svg";
-import {ReactComponent as BB} from "../Icon/Property 1=Frame 45.svg";
-import {ReactComponent as Cc} from "../Icon/bi_x-square.svg";
-import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
-import {ReactComponent as User} from "../Icon/Property 1=user_big.svg";
+import {ReactComponent as X_img} from "../icon/bi_x-square.svg";
+import {ReactComponent as Ab} from "../icon/akar-icons_circle-chevron-up.svg";
+import {ReactComponent as BB} from "../icon/Property 1=Frame 45.svg";
+import {ReactComponent as Cc} from "../icon/bi_x-square.svg";
+import {ReactComponent as Search_Icon} from "../icon/Property 1=search 1.svg";
+import {ReactComponent as User} from "../icon/Property 1=user_big.svg";
 import Header from '../component/Header';
 const searchStyle={
   border:'solid',

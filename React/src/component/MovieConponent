@@ -1,0 +1,32 @@
+import React from 'react';
+import './MovieCard.scss';
+import styled from 'styled-components';
+import NoResult from './NoResult';
+import {
+    Link,
+} from "@material-ui/core";
+
+const MovieConponent = ({ item }) => {
+
+    const { title, image_url, year, country } = item;
+
+    return (
+
+        <div >
+
+            <Img image={image_url}  />
+            <div >
+                <h2>{title}</h2>
+                <div>{`${year}³âµµ`}</div>
+                <div className="movie-summary-row">
+                    <h5>{country}</h5>
+                </div>
+                </div>
+        </div>
+    );
+};
+
+
+
+
+export default MovieConponent;

@@ -27,6 +27,7 @@ import java.util.Map;
 
 //import com.winter.ott.dto
 
+@CrossOrigin
 @RestController
 @RequestMapping("/movies/{movie_id}")
 @Log4j2

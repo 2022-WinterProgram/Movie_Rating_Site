@@ -6,12 +6,12 @@ import { useEffect,  useState } from 'react';
 import axios from 'axios';
 import SearchResultPage from '../component/SearchResultPage'
 import NoResult from '../component/NoResult';
-import {ReactComponent as X_img} from "../Icon/bi_x-square.svg";
-import {ReactComponent as Ab} from "../Icon/akar-icons_circle-chevron-up.svg";
-import {ReactComponent as BB} from "../Icon/Property 1=Frame 45.svg";
-import {ReactComponent as Cc} from "../Icon/bi_x-square.svg";
-import {ReactComponent as Search_Icon} from "../Icon/Property 1=search 1.svg";
-import {ReactComponent as User} from "../Icon/Property 1=user_big.svg";
+import {ReactComponent as X_img} from "../icon/bi_x-square.svg";
+import {ReactComponent as Ab} from "../icon/akar-icons_circle-chevron-up.svg";
+import {ReactComponent as BB} from "../icon/Property 1=Frame 45.svg";
+import {ReactComponent as Cc} from "../icon/bi_x-square.svg";
+import {ReactComponent as Search_Icon} from "../icon/Property 1=search 1.svg";
+import {ReactComponent as User} from "../icon/Property 1=user_big.svg";
 import Header from '../component/Header';
 import { Components } from 'antd/lib/date-picker/generatePicker';
 const searchStyle={
@@ -29,24 +29,15 @@ const LoginStyle={
   float:'right'
   
 }
-const MovieSearchContainer = () => {
+class MovieSearchContainer extends Component {
 
-  const getUrl=new URL(window.location.href);
-  const urlParams=getUrl.searchParams;
-  const keyword=urlParams.get("keyword")
-  const [result, setResult]=useState('');
-  const [search, setSearch]=useState('');
-  const [items, setItems] = useState();
-  const [len, setLen]=useState();
-  console.log(items);
-
-  const inputChange=(e)=>{
+  inputChange=(e)=>{
       const value=e.target.value;
       setResult(value);
   }
 
 
-  const handleButton = async (value) => {
+  handleButton = async (value) => {
     try {
       const res = await axios.get('http://localhost:8080/search/'+value);
     
@@ -63,8 +54,19 @@ const MovieSearchContainer = () => {
     }
   };
 
+  render(){
+    const getUrl=new URL(window.location.href);
+    const urlParams=getUrl.searchParams;
+    const keyword=urlParams.get("keyword")
+    const [result, setResult]=useState('');
+    const [search, setSearch]=useState('');
+    const [items, setItems] = useState();
+    const [len, setLen]=useState();
+    console.log(items);
+
     return(
       <SearchResultPage />
     )
+  }
 };
 export default MovieSearchContainer;

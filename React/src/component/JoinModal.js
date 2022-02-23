@@ -13,7 +13,7 @@ export class JoinModal extends Component {
     loginHandler = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
-    };   ////°è»êµÈ ¼Ó¼º¸í »ç¿ë
+    };   ////계산된 속성명 사용
 
     loginClickHandler = () => {
         const { name, email, password } = this.state;
